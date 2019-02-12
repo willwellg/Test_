@@ -1,0 +1,8 @@
+<p>
+    <img class="logo" src="/static/image/logo.png"></br>
+	<a href="{% url 'Django_web:index' %}">Home</a>
+    <a href="{% url 'Django_web:query' %}">Query</a>
+    <a href="{% url 'Django_web:beginadd' %}">BeginAdd</a>
+    <a href="{% url 'user_center:login' %}">Login</a>
+</p>
+{% block content %}{% endblock content %}
