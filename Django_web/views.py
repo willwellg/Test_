@@ -6,6 +6,9 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 def index(request):
+    return render(request, 'login/login.html')
+
+def first_page(request):
     return render(request, 'base/index.html')
 
 def queryAll(request):

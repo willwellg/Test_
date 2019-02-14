@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^beginadd/$', views.addByID, name = 'beginadd'),
     url(r'^add/$', views.add, name = 'add'),
     url(r'^update/$', views.updateByID, name = 'update'),
+    url(r'^first_page/$', views.first_page, name = 'first_page'),
 ]
