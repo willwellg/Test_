@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^first_page/$', views.first_page, name = 'first_page'),
 
     url(r'^first_page/$', views.first_page, name = 'first_page'),
+    url(r'^first_page/$', views.first_page, name = 'first_page'),
 ]
