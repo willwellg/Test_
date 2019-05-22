@@ -1,0 +1,9 @@
+<p>
+    <img class="logo" src="/common/image/base/logo.PNG"></br>
+	<a href="{% url 'Django_web:first_page' %}">Home</a>
+    <a href="{% url 'Django_web:query' %}">Query</a>
+    <a href="{% url 'Django_web:beginadd' %}">BeginAdd</a>
+
+</p>
+<li class="nav-item "><a href="/user/login_out/"> <input type="submit" id="submit" name="submit" value="退出"></a></li>
+{% block content %}{% endblock content %}

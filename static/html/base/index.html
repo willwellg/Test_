@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>欢迎进入数据系统</title>
+</head>
+
+<body>
+
+{%extends "base/base.html" %}
+<p>
+    <a href="{% url 'Django_web:query%' %}">Query</a>
+</p>
+{% block content %}
+<p> 欢迎登陆系统</p>
+{% endblock content %}
+</body>
+</html>

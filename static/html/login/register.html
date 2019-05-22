@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>注册</title>
+</head>
+<body>
+{% if errors %}
+	<li>
+		{% for error in errors %}
+		<p style="color:red;">
+		{{error}}below.
+		</p>
+		{% endfor %}
+	</li>
+{% endif %}
+<form name="form1" method="post" action="/user/add/">
+<TABLE>
+	<TR>
+		<TD colspan="2" align="center"><font>用户注册</font></TD>
+	</TR>
+	<TR></TR>
+	<TR></TR>
+	<TR>
+		<TD><font>用&nbsp;户&nbsp;名：</font></TD>
+		<TD><input name="name" id="name" type="text" size="20"></TD>
+	</TR>
+	<TR>
+		<TD><font>密&nbsp;&nbsp;&nbsp;&nbsp;码：</font></TD>
+		<TD><input name="password1" id="password1" type="password" size="20"></TD>
+	</TR>
+	<TR>
+		<TD><font>确认密码：</font></TD>
+		<TD><input name="password2" id="password2" type="password" size="20"></TD>
+	</TR>
+	<TR>
+		<TD align="center"><input type="submit" id="submit1" name="submit1" value="提交"></TD>
+        <TD align="center"><a href="http://127.0.0.1:8000/"><button type="button">返回</button></a></TD>
+	</TR>
+</TABLE>
+</form>
+</body>
+</html>
