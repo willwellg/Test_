@@ -10,6 +10,9 @@ import xlrd
 def index(request):
     return render(request, 'blog/index.html')
 
+def home(request):
+    return render(request, 'blog/home.html')
+
 class ArticleListView(ListView):
     model = Article
     template_name = 'blog/index.html'
@@ -20,7 +23,7 @@ def first_page(request):
 
 def queryAll(request):
     b = Article.objects.all()
-    return render_to_response('base/Queryall.html', {'data': b})
+    return render('base/Queryall.html', {'data': b})
 
 def delByID(request):
     i = request.GET['id']
@@ -29,7 +32,7 @@ def delByID(request):
     return HttpResponseRedirect("http://127.0.0.1:8000/query")
 
 def addByID(request):
-    return render_to_response('base/add.html')
+    return render('base/add.html')
 
 def add(request):
     id = request.POST['id']
@@ -46,7 +49,7 @@ def add(request):
 def updateByID(requst):
     i = requst.GET['id']
     b = Article.objects.get(id = str(i))
-    return render_to_response('base/update.html', {'data': b})
+    return render('base/update.html', {'data': b})
 
 def uploade(request):
     if request == 'POST':
@@ -75,7 +78,7 @@ def uploade(request):
 
 def upload_excel(request):
 
-    return render_to_response('base/uplaod_excel.html')
+    return render('base/uplaod_excel.html')
 
 
 

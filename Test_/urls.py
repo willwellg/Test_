@@ -27,7 +27,8 @@ xversion.register_models()
 
 urlpatterns = [
     url('^xadmin/', xadmin.site.urls),
-    url(r'^ueditor/', include('DjangoUeditor.urls')),
+    # url(r'^ueditor/', include('DjangoUeditor.urls')),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'', include(('Django_web.urls', 'Django_web'), namespace= 'Django_web')),
     url(r'user/', include(('user_center.urls', 'user_center'), namespace= 'user_center'))
 ]

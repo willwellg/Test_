@@ -44,14 +44,15 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'reversion',
-    'DjangoUeditor',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -62,7 +63,7 @@ ROOT_URLCONF = 'Test_.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'common/html')]
+        'DIRS': [os.path.join(BASE_DIR, 'static/html')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -131,12 +132,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/common/'
+STATIC_URL = '/static/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'common')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'common'),
+    os.path.join(BASE_DIR, 'static'),
     ]
 
 MEDIA_URL = '/media/'
@@ -144,3 +145,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_DIRS = [
 #     os.path.join(BASE_DIR, 'media')
 #     ]
+
+CKEDITOR_UPLOAD_PATH= "uploads/"
+CKEDITOR_JQUERY_URL= 'https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'
+CKEDITOR_IMAGE_BACKEND= 'pillow'

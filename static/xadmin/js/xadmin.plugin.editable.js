@@ -64,7 +64,6 @@
 
   Editpop.prototype.beforeToggle = function() {
     var $el = this.$element
-
     if(this.content == null){
       var that = this
       $el.find('>i').removeClass('fa fa-edit').addClass('fa fa-spinner fa-spin')
