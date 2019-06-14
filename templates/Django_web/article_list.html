@@ -1,10 +1,3 @@
-{#<!doctype html>#}
-{#<html>#}
-{#<head>#}
-{#<meta charset="utf-8">#}
-{#<title>博客首页</title>#}
-{#</head>#}
-{#<body>#}
 {% extends "base.html" %}
 
 {% block picshow %}
@@ -35,9 +28,9 @@
         <li> <span class="blogpic"></span>
           <h3 class="blogtitle"><a href="/">{{ article.title }}</a></h3>
           <div class="bloginfo">
-            <p>{{ article.text|safe }}</p>
+            <p>{{ article.text|safe|truncatechars_html:100 }}</p>
           </div>
-          <div class="autor"><span class="lm"><a href="/" title="CSS3|Html5" target="_blank" class="classname">CSS3|Html5</a></span><span class="dtime">2018-05-04</span><span class="viewnum">浏览（<a href="/">0</a>）</span><span class="readmore"><a href="/">阅读原文</a></span></div>
+          <div class="autor"><span class="lm"><a href="/" title="CSS3|Html5" target="_blank" class="classname">CSS3|Html5</a></span><span class="dtime">{{ article.modify_time }}</span><span class="viewnum">浏览（<a href="/">0</a>）</span><span class="readmore"><a href="/">阅读原文</a></span></div>
         </li>
     {% endfor %}
 
