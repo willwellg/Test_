@@ -1,0 +1,1 @@
+default_app_config = 'Django_web.apps.DjangoWebConfig'

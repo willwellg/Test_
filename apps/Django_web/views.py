@@ -2,9 +2,8 @@ from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.views.generic import ListView
 from .models import *
-from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-import xlrd
+import xlrd, time
 
 # Create your views here.
 def index(request):

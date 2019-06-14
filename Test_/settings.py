@@ -118,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'zh-Hans'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -146,7 +146,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #     os.path.join(BASE_DIR, 'media')
 #     ]
 
-CKEDITOR_UPLOAD_PATH= "uploads/"
+CKEDITOR_UPLOAD_PATH= BASE_DIR +  "/media/"
 CKEDITOR_JQUERY_URL= 'https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'
 CKEDITOR_IMAGE_BACKEND= 'pillow'
 
@@ -162,7 +162,9 @@ CKEDITOR_CONFIGS = {
         #     ['RemoveFormat', 'Source']
         # ],
         'height': 800,
-        'width': 1000
+        'width': 1000,
+        'extraPlugins': 'codesnippet',
+        'codeSnippet_theme': 'tomorrow-night',
     },
 }
 
