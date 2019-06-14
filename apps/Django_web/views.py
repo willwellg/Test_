@@ -14,7 +14,10 @@ def home(request):
 
 class ArticleListView(ListView):
     model = Article
-    template_name = 'blog/index.html'
+
+    def get_queryset(self):
+        article_list = Article.objects.all()
+        return article_list
 
 
 def first_page(request):

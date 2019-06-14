@@ -3,7 +3,8 @@ from Django_web.views import ArticleListView
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.index, name = 'index'),
+    # url(r'^$', views.index, name = 'index'),
+    url(r'^$', ArticleListView.as_view(), name= 'Article'),
     url(r'^home/$', views.home, name = 'home'),
     url(r'^query/$', views.queryAll, name = 'query'),
     url(r'^delete/$', views.delByID, name = 'delete'),
