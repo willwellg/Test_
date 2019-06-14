@@ -63,7 +63,7 @@ ROOT_URLCONF = 'Test_.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'static/html')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -153,14 +153,6 @@ CKEDITOR_IMAGE_BACKEND= 'pillow'
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
-        # 'toolbar': 'Custom',
-        # 'toolbar_Custom': [
-        #     ['Bold', 'Italic', 'Underline'],
-        #     ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter',
-        #      'JustifyRight', 'JustifyBlock'],
-        #     ['Link', 'Unlink'],
-        #     ['RemoveFormat', 'Source']
-        # ],
         'height': 800,
         'width': 1000,
         'extraPlugins': 'codesnippet',
