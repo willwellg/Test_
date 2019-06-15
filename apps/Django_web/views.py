@@ -1,22 +1,15 @@
 from django.shortcuts import render
-from django.shortcuts import render_to_response
 from django.views.generic import ListView
 from .models import *
 from django.http import HttpResponseRedirect
-import xlrd, time
 
 # Create your views here.
-def index(request):
-    return render(request, 'blog/index.html')
-
-def home(request):
-    return render(request, 'blog/home.html')
-
 class ArticleListView(ListView):
     model = Article
+    paginate_by = 1
 
     def get_queryset(self):
-        article_list = Article.objects.all()
+        article_list = Article.objects.all().order_by()
         return article_list
 
 
@@ -53,34 +46,7 @@ def updateByID(requst):
     b = Article.objects.get(id = str(i))
     return render('base/update.html', {'data': b})
 
-def uploade(request):
-    if request == 'POST':
-        myform = FileUploadForm(request.POST, request.FILES)
 
-        if myform.is_valid():
-            f = request.FILES
-
-            wb = xlrd.open_workbook(filename=None, file_content=f.read())
-            table = wb.sheet()[0]
-            nrow = table.nrows
-            ncol = table.ncols
-            print(nrow, ncol)
-
-            for i in range(1, nrow+1):
-                row_value = table.row_value(i)
-                st = Article()
-                id = row_value.rowvalue[1]
-                title = row_value.rowvalue[2]
-                author = row_value.rowvalue[3]
-                st.title = title
-                st.author = author
-                st.save()
-    return HttpResponseRedirect("http://127.0.0.1:8000/query")
-
-
-def upload_excel(request):
-
-    return render('base/uplaod_excel.html')
 
 
 
