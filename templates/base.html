@@ -55,13 +55,13 @@ window.onload = function ()
   </div>
 </header>
 
-{% block picshow %}{% endblock picshow %}
+{% include 'picture_show.html' %}
 
 <article>
     {% block blogs %}{% endblock blogs %}
 
     <div class="sidebar">
-        {% block about %}{% endblock about %}
+        {% include 'about.html' %}
         {% block search %}{% endblock search %}
         {% block cloud %}{% endblock cloud %}
         {% block paihang %}{% endblock paihang %}
