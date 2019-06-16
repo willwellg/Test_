@@ -4,11 +4,21 @@
   <div class="blogs">
     {% for article in article_list %}
         <li> <span class="blogpic"></span>
-          <h3 class="blogtitle"><a href="/">{{ article.title }}</a></h3>
+          <h3 class="blogtitle"><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3>
           <div class="bloginfo">
             <p>{{ article.text|safe|truncatechars_html:100 }}</p>
           </div>
-          <div class="autor"><span class="lm"><a href="/" title="CSS3|Html5" target="_blank" class="classname">CSS3|Html5</a></span><span class="dtime">{{ article.modify_time }}</span><span class="viewnum">浏览（<a href="/">0</a>）</span><span class="readmore"><a href="/">阅读原文</a></span></div>
+          <div class="autor">
+                {% if article.tags.all %}
+                    <span class="lm">
+                    {% for tag in article.tags.all %}
+                        <a href="/" title="{{ tag.name }}" target="_blank" class="classname">{{ tag.name }}</a>
+                    {% endfor %}
+                    </span>
+                {% endif %}
+              <span class="dtime">{{ article.modify_time }}</span><span class="viewnum">浏览（<a href="/">0</a>）</span>
+              <span class="readmore"><a href="{{ article.get_absolute_url }}">阅读原文</a></span>
+          </div>
         </li>
     {% endfor %}
     <div class="blank"></div>

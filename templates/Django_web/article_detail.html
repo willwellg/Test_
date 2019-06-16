@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block blogs %}
+  <div class="blogs">
+    <li> <span class="blogpic"></span>
+      <h3 class="blogtitle"><a href="/">{{ article.title }}</a></h3>
+      <div class="bloginfo">
+        <p>{{ article.text|safe }}</p>
+      </div>
+      <div class="autor">
+            {% if article.tags.all %}
+                <span class="lm">
+                {% for tag in article.tags.all %}
+                    <a href="/" title="{{ tag.name }}" target="_blank" class="classname">{{ tag.name }}</a>
+                {% endfor %}
+                </span>
+            {% endif %}
+          <span class="dtime">{{ article.modify_time }}</span><span class="viewnum">浏览（<a href="/">0</a>）</span>
+
+      </div>
+    </li>
+  </div>
+ {% endblock blogs %}

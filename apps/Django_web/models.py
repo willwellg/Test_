@@ -1,5 +1,5 @@
 from django.db import models
-from django import forms
+from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
@@ -16,6 +16,9 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("Django_web:article_detail", kwargs= {'pk': self.pk})
 
     class Meta:
         verbose_name = '笔记'
@@ -36,6 +39,9 @@ class Category(models.Model):
     #分类名
     name = models.CharField(max_length= 100)
     parent_category = models.ForeignKey('self', verbose_name="父级分类", blank=True, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = '分类'
