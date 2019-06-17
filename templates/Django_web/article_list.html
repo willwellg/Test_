@@ -1,5 +1,27 @@
 {% extends "base.html" %}
 
+{% block picture_show %}
+<div class="picshow">
+  <ul>
+    <li><a href="/"><i><img src="/static/images/b02.jpg"></i>
+      <div class="font">
+        <h3>你好</h3>
+      </div>
+      </a></li>
+    <li><a href="/"><i><img src="/static/images/b03.jpg"></i>
+      <div class="font">
+        <h3>早</h3>
+      </div>
+      </a></li>
+    <li><a href="/"><i><img src="/static/images/b04.jpg"></i>
+      <div class="font">
+        <h3>晚</h3>
+      </div>
+      </a></li>
+  </ul>
+</div>
+{% endblock picture_show %}
+
 {% block blogs %}
   <div class="blogs">
     {% for article in article_list %}
@@ -51,14 +73,7 @@
     </div>
 {% endblock search %}
 
-{% block cloud %}
-    <div class="cloud">
-      <h2 class="hometitle">标签云</h2>
-      <ul>
-        <a href="/">陌上花开</a> <a href="/">校园生活</a> <a href="/">html5</a> <a href="/">SumSung</a> <a href="/">青春</a> <a href="/">温暖</a> <a href="/">阳光</a> <a href="/">三星</a><a href="/">索尼</a> <a href="/">华维荣耀</a> <a href="/">三星</a> <a href="/">索尼</a>
-      </ul>
-    </div>
-{% endblock cloud %}
+
 
 {% block paihang %}
         <div class="paihang">

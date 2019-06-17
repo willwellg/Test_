@@ -56,6 +56,7 @@ window.onload = function ()
 </header>
 
 {% include 'picture_show.html' %}
+{% block picture_show %}{% endblock picture_show %}
 
 <article>
     {% block blogs %}{% endblock blogs %}
@@ -63,6 +64,8 @@ window.onload = function ()
     <div class="sidebar">
         {% include 'about.html' %}
         {% block search %}{% endblock search %}
+        {% load Django_web_tags %}
+        {% load_cloud %}
         {% block cloud %}{% endblock cloud %}
         {% block paihang %}{% endblock paihang %}
 
@@ -76,7 +79,7 @@ window.onload = function ()
       </ul>
     </div>
     <div class="weixin">
-      <h2 class="hometitle">官方微信</h2>
+      <h2 class="hometitle">微信</h2>
       <ul>
         <img src="/static/images/wx.jpg">
       </ul>
