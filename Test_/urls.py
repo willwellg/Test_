@@ -29,6 +29,7 @@ urlpatterns = [
     url('^xadmin/', xadmin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'', include(('Django_web.urls', 'Django_web'), namespace= 'Django_web')),
+    url(r'^search/', include('haystack.urls')),
 ]
 
 

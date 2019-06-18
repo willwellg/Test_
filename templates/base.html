@@ -55,7 +55,6 @@ window.onload = function ()
   </div>
 </header>
 
-{% include 'picture_show.html' %}
 {% block picture_show %}{% endblock picture_show %}
 
 <article>
@@ -63,10 +62,10 @@ window.onload = function ()
 
     <div class="sidebar">
         {% include 'about.html' %}
-        {% block search %}{% endblock search %}
+{#        {% block search %}{% endblock search %}#}
+        {% include 'search.html' %}
         {% load Django_web_tags %}
         {% load_cloud %}
-        {% block cloud %}{% endblock cloud %}
         {% block paihang %}{% endblock paihang %}
 
      <div class="links">
