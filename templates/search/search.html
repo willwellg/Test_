@@ -8,9 +8,9 @@
       <div class="blogs">
         {% for result in page.object_list %}
             <li> <span class="blogpic"></span>
-              <h3 class="blogtitle"><a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a></h3>
+              <h3 class="blogtitle"><a href="{{ result.object.get_absolute_url }}">{% highlight result.object.title with query %} </a></h3>
               <div class="bloginfo">
-                {% highlight result.object.text with query css_class "keyword" %}
+                {% highlight result.object.text with query %}
               </div>
 
               <div class="autor">
@@ -21,16 +21,22 @@
                         {% endfor %}
                         </span>
                     {% endif %}
-                  <span class="dtime">{{ result.object.modify_time }}</span><span class="viewnum">浏览（<a href="/">0</a>）</span>
+                  <span class="dtime">{{ result.object.modify_time }}</span><span class="viewnum">浏览（<a>0</a>）</span>
                   <span class="readmore"><a href="{{ result.object.get_absolute_url }}">阅读原文</a></span>
               </div>
             </li>
+        {% empty %}
+            <p>没有结果发现...</p>
         {% endfor %}
         <div class="blank"></div>
         <div class="pagelist">
-            {% if page.has_previous %}<a href="?q={{ query }}&page={{ page.previous_page_number }}">{% endif %}« Previous{% if page.has_previous %}</a>{% endif %}
-            |
-            {% if page.has_next %}<a href="?q={{ query }}&page={{ page.next_page_number }}">{% endif %}Next »{% if page.has_next %}</a>{% endif %}
+        {% if page.has_previous %}
+             <a href="?q={{ query }}&page={{ page.previous_page_number }}">上一页</a>
+         {% endif %}
+        <a title="Total record">{{ page.number }}/{{ page.paginator.num_pages }}页</a>
+        {% if page.has_next %}
+             <a href="?q={{ query }}&page={{ page.next_page_number }}">下一页</a>
+            {% endif %}
         </div>
       </div>
     {% else %}
