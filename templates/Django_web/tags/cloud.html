@@ -1,8 +1,8 @@
 <div class="cloud">
   <h2 class="hometitle">标签云</h2>
   <ul>
-      {% for cloud in clouds %}
-        <a href="/">{{ cloud.name }}</a>
+      {% for tag in clouds %}
+        <a href="{% url 'Django_web:tag' tag.pk %}">{{ tag.name }}</a>
       {% endfor %}
   </ul>
 </div>

@@ -15,6 +15,16 @@ class ArticleListView(ListView):
 class ArticleDetailView(DetailView):
     model = Article
 
+class TagView(ListView):
+    model = Article
+    context_object_name = 'article_list'
+
+    def get_queryset(self):
+        tag = get_object_or_404(Tag, pk = self.kwargs.get('pk'))
+        return super(TagView, self).get_queryset().filter(tags = tag)
+
+
+
 
 
 

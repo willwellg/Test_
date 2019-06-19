@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load highlight %}
 
-
 {% block blogs %}
     <h3>搜索结果：<span>{{ query }}</span></h3>
     {% if query %}
@@ -12,12 +11,11 @@
               <div class="bloginfo">
                 {% highlight result.object.text with query %}
               </div>
-
               <div class="autor">
                     {% if result.object.tags.all %}
                         <span class="lm">
                         {% for tag in result.object.tags.all %}
-                            <a href="/" title="{{ tag.name }}" target="_blank" class="classname">{{ tag.name }}</a>
+                            <a href="{% url 'Django_web:tag' tag.pk %}" title="{{ tag.name }}" target="_blank" class="classname">{{ tag.name }}</a>
                         {% endfor %}
                         </span>
                     {% endif %}
@@ -42,5 +40,4 @@
     {% else %}
         <p>没有结果发现...</p>
     {% endif %}
-
  {% endblock blogs %}
