@@ -15,6 +15,11 @@ class ArticleListView(ListView):
 class ArticleDetailView(DetailView):
     model = Article
 
+    def get(self, request, *args, **kwargs):
+        response = super(ArticleDetailView, self).get(request, *args, **kwargs)
+        self.object.increase_views()
+        return response
+
 class TagView(ListView):
     model = Article
     context_object_name = 'article_list'

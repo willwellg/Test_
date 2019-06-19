@@ -20,6 +20,10 @@ class Article(models.Model):
     def get_absolute_url(self):
         return reverse("Django_web:article_detail", kwargs= {'pk': self.pk})
 
+    def increase_views(self):
+        self.views += 1
+        self.save(update_fields=['views'])
+
     class Meta:
         verbose_name = '笔记'
         verbose_name_plural = verbose_name

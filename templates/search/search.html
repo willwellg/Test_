@@ -19,7 +19,7 @@
                         {% endfor %}
                         </span>
                     {% endif %}
-                  <span class="dtime">{{ result.object.modify_time }}</span><span class="viewnum">浏览（<a>0</a>）</span>
+                  <span class="dtime">{{ result.object.modify_time }}</span><span class="viewnum">浏览（<a>{{ result.object.views }}</a>）</span>
                   <span class="readmore"><a href="{{ result.object.get_absolute_url }}">阅读原文</a></span>
               </div>
             </li>
