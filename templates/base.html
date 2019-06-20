@@ -39,21 +39,21 @@ window.onload = function ()
     <div id="mnav">
       <h2><span class="navicon"></span></h2>
       <ul>
-        <li><a href="/">网站首页</a></li>
-        <li><a href="about.html">关于我</a></li>
-        <li><a href="share.html">模板分享</a></li>
+        <li><a href="/">首页</a></li>
+        <li><a href="share.html">计算机</a></li>
         <li><a href="list.html">学无止境</a></li>
         <li><a href="info.html">慢生活</a></li>
+        <li><a href="about.html">关于我</a></li>
         <li><a href="gbook.html">留言</a></li>
       </ul>
     </div>
     <nav class="topnav" id="topnav">
       <ul>
-        <li><a href="/">网站首页</a></li>
-        <li><a href="about.html">关于我</a></li>
-        <li><a href="share.html">模板分享</a></li>
+        <li><a href="/">首页</a></li>
+        <li><a href="share.html">计算机</a></li>
         <li><a href="list.html">学无止境</a></li>
         <li><a href="info.html">慢生活</a></li>
+        <li><a href="about.html">关于我</a></li>
         <li><a href="gbook.html">留言</a></li>
       </ul>
     </nav>
@@ -66,12 +66,11 @@ window.onload = function ()
     {% block blogs %}{% endblock blogs %}
 
     <div class="sidebar">
-
 {#        {% block search %}{% endblock search %}#}
         {% include 'search.html' %}
-        {% include 'about.html' %}
         {% load Django_web_tags %}
         {% load_cloud %}
+        {% include 'about.html' %}
         {% block paihang %}{% endblock paihang %}
 
      <div class="links">
@@ -96,5 +95,29 @@ window.onload = function ()
   <p>Design by <a href="/">布拉猫设计</a> <a href="/">蜀ICP备11002373号-1</a></p>
 </footer>
 <script src="/static/js/nav.js"></script>
+<a href="javascript:;" id="fire"></a>
+<script>
+
+    var oBtn = document.getElementById('fire');
+
+    oBtn.onclick = function () {
+        oBtn.style.backgroundPosition = '-199px -2px';
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        /*ie chrome兼容 滚动条距离上方高度*/
+
+        var timer = setInterval(function () {
+            scrollTop -= 20;
+            window.scrollTo(0, scrollTop);
+            /*（x,y）*/
+            if (scrollTop <= 0) {/*滚动距离小于等于0 清除定时器*/
+                clearInterval(timer);
+                var timer1 = setTimeout(function () {
+                    oBtn.style.backgroundPosition = '-22px -5px';
+                }, 1000);
+            }
+        }, 2);
+    }
+</script>
+
 </body>
 </html>
