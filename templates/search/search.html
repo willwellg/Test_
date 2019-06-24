@@ -2,7 +2,7 @@
 {% load highlight %}
 
 {% block blogs %}
-    <h3>搜索结果：<span>{{ query }}</span></h3>
+    <h4>搜索结果：<span>{{ query }}</span></h4>
     {% if query %}
       <div class="blogs">
         {% for result in page.object_list %}
